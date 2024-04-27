@@ -1,0 +1,93 @@
+dataset:
+    inference_max_length: 2048 # 1024
+    doc_max_length: 900
+    doc_stride: 500
+    
+    stride_train: False
+    stride_valid: False
+    fbeta_postproc_thr: 0.9
+
+    train_batch_size: 1
+    valid_batch_size: 1
+    
+    filter_no_pii: True
+    filter_no_pii_ratio: 0.2
+    
+model:
+    state_from_model: None
+    load_parts: False
+    load_n_layers: 24
+    load_embeddings: True
+    load_head: True
+    
+    architecture_type: 'CustomModel'
+    backbone_type: 'microsoft/deberta-v3-large' # 'MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli' # 
+    lstm: False
+    dropout: 0
+    attention_dropout: 0
+
+    pooling_type: 'MeanPooling' # ['MeanPooling', 'GemPooling']
+
+    gem_pooling:
+        p: 3
+        eps: 1.e-6
+
+    gradient_checkpointing: False
+
+    freeze_embeddings: False
+    freeze_n_layers: 6
+    reinitialize_n_layers: 0
+
+optimizer:
+    encoder_lr: 0.00002
+    embeddings_lr: 0.00002
+    decoder_lr: 0.00002
+
+    group_lr_multiplier: 1
+    n_groups: 1
+
+    eps: 1.e-6
+    beta1: 0.9
+    beta2: 0.999
+
+    weight_decay: 0.01
+    warmup_ratio: 0.0
+
+scheduler:
+    type: 'cosine_schedule_with_warmup'
+    cosine_schedule_with_warmup:
+        n_cycles: 0.5
+        n_warmup_steps: 0
+
+training:
+    epochs: 3
+    apex: True
+    gradient_accumulation_steps: 4
+    evaluate_n_times_per_epoch: 1
+    max_grad_norm: 1
+
+criterion:
+    criterion_type: 'BCEWithLogitsLoss'
+
+    smooth_l1_loss:
+        beta: 0.1
+        reduction: 'mean'
+
+    mse_loss:
+        reduction: 'mean'
+
+    rmse_loss:
+        eps: 1.e-9
+        reduction: 'mean'
+
+    mcrmse_loss:
+        weights: [0.5, 0.5]
+
+logger:
+    use_wandb: True
+
+    project: 'pii-data-detection-4'
+    job_type: 'training'
+
+    train_print_frequency: 100
+    valid_print_frequency: 100

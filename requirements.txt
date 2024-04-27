@@ -1,0 +1,13 @@
+accelerate==0.26.1
+datasets==2.18.0
+evaluate==0.4.1
+numpy==1.26.3
+pandas==2.2.0
+python-dateutil==2.8.2
+PyYAML==6.0.1
+scikit-learn==1.4.0
+spacy==3.7.2
+tokenizers==0.19.1
+torch==2.2.0
+tqdm==4.66.1
+transformers==4.40.0
