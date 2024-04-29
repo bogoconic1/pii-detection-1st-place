@@ -1,5 +1,6 @@
 hdir=$(pwd)
 
+mkdir models
 mkdir data
 cd data
 
