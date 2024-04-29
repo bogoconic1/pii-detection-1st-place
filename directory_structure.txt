@@ -1,6 +1,8 @@
 .
+./src
+./configs
 ./data
-./logs
 ./data/processed
 ./data/external
 ./models
+./logs
