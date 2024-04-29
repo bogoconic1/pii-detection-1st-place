@@ -37,5 +37,16 @@ for VALIDATION_FOLD in config['validation_folds']:
         "--loss", training_config['loss']
     ]
 
-    # Print command (can replace print with subprocess.run(command) to execute)
-    print(" ".join(command))
+    # Execute the command and redirect stdout and stderr
+    with open(
+        f"logs/dropouts-fold{VALIDATION_FOLD}-{current_date}.log", "w"
+    ) as log_file:
+        process = subprocess.Popen(
+            command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
+        )
+        for line in process.stdout:
+            print(line, end="")
+            log_file.write(line)
+
+    process.stdout.close()
+    process.wait()

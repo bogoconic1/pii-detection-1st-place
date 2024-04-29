@@ -74,7 +74,9 @@ for VALIDATION_FOLD in config["validation_folds"]:
     ]
 
     # Execute the command and redirect stdout and stderr
-    with open(f"logs/bilstm1-fullfit-fp16-{current_date}.log", "w") as log_file:
+    with open(
+        f"logs/bilstm1-fold{VALIDATION_FOLD}-fp16-{current_date}.log", "w"
+    ) as log_file:
         process = subprocess.Popen(
             command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True
         )
