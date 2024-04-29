@@ -1,0 +1,21 @@
+environment:
+  cuda_home: '/usr/local/cuda'
+  nccl_debug: 'INFO'
+  cuda_visible_devices: '0,1,2,3,4,5,6,7'
+
+training:
+  model_path: "microsoft/deberta-v3-large"
+  max_length: 2048
+  adv_stop_mode: "epoch"
+  adv_start: 100
+  loss: "ce"
+  learning_rate: 0.00007
+  save_steps: 0.5
+  per_device_train_batch_size: 12
+  per_device_eval_batch_size: 12
+  num_train_epochs: 4
+  o_weight: 0.05
+  smoke_test: 0
+  fullfit: 0
+
+validation_folds: [0, 1, 2, 3]

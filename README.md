@@ -58,19 +58,20 @@ Our solution involves five Deberta-v3-large models, incorporating different arch
 - Multi-Sample Dropout Custom Model: Improves training stability and performance.
 
     ```shell
-    sh train_multi_dropouts.sh
+    python train_multi_dropouts.py
     ```
 
 - BiLSTM Layer Custom Model: Adds a BiLSTM layer to enhance feature extraction, includes specific initialization to prevent NaN loss issues.
 
     ```shell
-    sh train_bilstm.sh
+    python train_bilstm.py
     ```
 
 - Knowledge Distillation: Utilizes well-performing models as teachers to boost a student model's performance, leveraging disparate datasets. It requires a teacher model. We used the best of Multi-Sample dropout models.
+Note: it requires a teacher model to be distlled with. We used the best of multi-sample dropout models.
 
     ```shell
-    sh train_distil.sh
+    python train_distil.py
     ```
 
 - Experiment 073: Uses augmented data with name swaps.

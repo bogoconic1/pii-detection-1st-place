@@ -1,0 +1,16 @@
+training:
+  model_path: "microsoft/deberta-v3-large"
+  max_length: 1800
+  learning_rate: 0.00008
+  per_device_train_batch_size: 14
+  per_device_eval_batch_size: 14
+  num_train_epochs: 10
+  save_steps: 32
+  o_weight: 0.05
+  hash_name: "maxlen_1800"
+  peft: False
+  seed: 42
+  adv_stop_mode: "epoch"
+  adv_start: 100
+  loss: "ce"
+validation_folds: [0, 1, 2, 3]

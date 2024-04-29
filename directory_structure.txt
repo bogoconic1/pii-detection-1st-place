@@ -1,5 +1,6 @@
 .
 ./data
+./logs
 ./data/processed
 ./data/external
 ./models

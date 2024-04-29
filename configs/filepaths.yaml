@@ -1,8 +1,0 @@
-
-data_dir: 'data'
-raw_dir: 'data/raw'
-processed_dir: 'data/processed'
-interim_dir: 'data/interim'
-external_dir: 'data/external'
-
-models_dir: 'models'

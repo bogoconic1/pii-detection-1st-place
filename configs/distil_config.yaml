@@ -1,0 +1,20 @@
+environment:
+  cuda_home: '/usr/local/cuda'
+  nccl_debug: 'INFO'
+  cuda_visible_devices: '0,1,2,3,4,5,6,7'
+
+training:
+  model_path: "microsoft/deberta-v3-large"
+  teacher_model_path: "models/multidropouts-0-lr2e-5/"
+  max_length: 2048
+  learning_rate: 0.00002
+  save_steps: 0.1
+  seed: 42
+  fullfit: 0
+  per_device_train_batch_size: 10
+  per_device_eval_batch_size: 10
+  num_train_epochs: 10
+  o_weight: 0.05
+  smoke_test: 0
+
+validation_folds: [0]

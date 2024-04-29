@@ -408,7 +408,7 @@ def main():
     ADV_MODE = args.adv_mode
     ADV_START = args.adv_start
     LOSS = args.loss
-    OUTPUT_DIR = f"../working/{args.output_dir}"
+    OUTPUT_DIR = args.output_dir
 
     print("args ", args)
     data = json.load(
